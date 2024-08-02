@@ -1,3 +1,9 @@
+// import 'dart:nativewrappers/_internal/vm/lib/core_patch.dart';
+
+// import 'dart:nativewrappers/_internal/vm/lib/core_patch.dart';
+
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class Iconpages extends StatefulWidget {
@@ -39,51 +45,113 @@ class _IconpagesState extends State<Iconpages> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(color: Colors.black, width: 1)),
-              child: Row(
+              child: Column(
                 children: [
-                  Column(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       ElevatedButton(
                           onPressed: () {},
-                          child: Text(
-                            "Elevated",
-                            style: TextStyle(fontSize: 15),
-                          )),
-                      FilledButton(
+                          child: commonbutton(name: "Elevated", size: 15)),
+                      ElevatedButton.icon(
                         onPressed: () {},
-                        child: Text(
-                          "Filled",
-                          style: TextStyle(fontSize: 20),
-                        ),
+                        icon: iconudf(size: 25, data: Icons.add),
+                        label: commonbutton(name: "Icon", size: 20),
+                      ),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                WidgetStateProperty.all(Colors.grey.shade300)),
+                        onPressed: () {},
+                        child: commonbutton(
+                            name: "Elevated",
+                            size: 15,
+                            color: Color(0xffA7A3A7)),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      FilledButton(
+                          onPressed: () {},
+                          child: commonbutton(name: "Filled", size: 25)),
+                      FilledButton.icon(
+                        onPressed: () {},
+                        icon: iconudf(size: 25, data: Icons.add),
+                        label: commonbutton(name: "Icon", size: 20),
+                      ),
+                      FilledButton(
+                          style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                  Colors.grey.shade300)),
+                          onPressed: () {},
+                          child: commonbutton(
+                              name: "Filled", size: 25, color: Colors.grey))
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      FilledButton.tonal(
+                          onPressed: () {},
+                          child: commonbutton(name: "Filled Tonal", size: 15)),
+                      FilledButton.tonalIcon(
+                        onPressed: () {},
+                        icon: iconudf(size: 25, data: Icons.add),
+                        label: commonbutton(name: "Icon", size: 20),
                       ),
                       FilledButton.tonal(
+                          style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                  Colors.grey.shade300)),
+                          onPressed: () {},
+                          child: commonbutton(
+                              name: "Filled Tonal", size: 15, color: Colors.grey))
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      OutlinedButton(
+                          onPressed: () {},
+                          child: commonbutton(name: "Outlined", size: 15)),
+                      OutlinedButton.icon(
                         onPressed: () {},
-                        child: Text(
-                          'Filled Tonal',
-                          style: TextStyle(fontSize: 15),
-                        ),
+                        icon: iconudf(size: 25, data: Icons.add),
+                        label: commonbutton(name: "Icon", size: 20),
                       ),
                       OutlinedButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Outlined',
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ),
-                      TextButton(
+                          style: ButtonStyle(
+                             overlayColor: WidgetStateProperty.all(Colors.grey)),
                           onPressed: () {},
-                          child: Text(
-                            "Text",
-                            style: TextStyle(fontSize: 20),
-                          ))
+                          child: commonbutton(
+                              name: "Filled Tonal", size: 15, color: Colors.grey))
                     ],
-                  )
+                  ),
                 ],
               ),
             )
           ],
         ),
       ),
+    );
+  }
+
+  Icon iconudf({
+    required double size,
+    required var data,
+  }) =>
+      Icon(
+        Icons.add,
+        size: 25,
+      );
+
+  Text commonbutton(
+      {required String name, required double size, Color? color}) {
+    return Text(
+      "$name",
+      style: TextStyle(fontSize: size, color: color),
     );
   }
 }
