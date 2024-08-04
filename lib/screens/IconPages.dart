@@ -4,6 +4,7 @@
 
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Iconpages extends StatefulWidget {
@@ -27,6 +28,7 @@ class _IconpagesState extends State<Iconpages> {
       body: Padding(
         padding: const EdgeInsets.only(left: 15, right: 15),
         child: Column(
+
           children: [
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -46,6 +48,7 @@ class _IconpagesState extends State<Iconpages> {
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(color: Colors.black, width: 1)),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -126,12 +129,32 @@ class _IconpagesState extends State<Iconpages> {
                              overlayColor: WidgetStateProperty.all(Colors.grey)),
                           onPressed: () {},
                           child: commonbutton(
-                              name: "Filled Tonal", size: 15, color: Colors.grey))
+                              name: "Outlined", size: 15, color: Colors.grey))
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      TextButton(
+                          onPressed: () {},
+                          child: commonbutton(name: "  Text", size: 15)),
+                      SizedBox(width: 10,),TextButton.icon(
+                        onPressed: () {},
+                        icon: iconudf(size: 25, data: Icons.add),
+                        label: commonbutton(name: "Icon", size: 20),
+                      ),
+                      TextButton(
+                          style: ButtonStyle(
+                              overlayColor: WidgetStateProperty.all(Colors.grey)),
+                          onPressed: () {},
+                          child: commonbutton(
+                              name: "Text", size: 15, color: Colors.grey))
                     ],
                   ),
                 ],
               ),
             )
+
           ],
         ),
       ),
