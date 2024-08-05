@@ -220,28 +220,25 @@ class _IconpagesState extends State<Iconpages> {
   }
 }
             
-List<dynamic> icons = [
-  Icons.person_2_outlined,
-  Icons.location_on_outlined,
-  Icons.notifications_none_outlined,
-  Icons.payment,
-  Icons.verified_user_outlined,
-  Icons.language,
-  Icons.lock_outline,
-  Icons.help_center_outlined,
-  Icons.supervised_user_circle_outlined,
-  Icons.logout,
-];
-
-List text = [
-  'Edit Profile',
-  'Address',
-  'Notification',
-  'Payment',
-  'Security',
-  'Language',
-  'Privacy Policy',
-  'Help Center',
-  'Invite Friends',
-  'Log Out',
+List iconlist=[
+{'name':'interest',
+'icon':Icons.article},
+{'name':'My Course ',
+'icon':Icons.video_settings},
+{'name':'Todo/Done',
+'icon':Icons.trending_up},
+{'name':'Offline Articles',
+'icon':Icons.download
+},
+{'name':'Rate us',
+'icon':Icons.star},
+{'name':'Support ',
+'icon':Icons.support_agent
+},
+{'name':'Setting',
+'icon':Icons.settings
+},
+{'name':'Log out',
+'icon':Icons.logout,
+}
 ];
