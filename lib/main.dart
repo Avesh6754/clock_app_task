@@ -1,4 +1,5 @@
 import 'package:clock_app_task/screens/IconPages.dart';
+import 'package:clock_app_task/screens/digital_clock.dart';
 import 'package:flutter/material.dart';
 
 void main()
@@ -14,7 +15,7 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/':(context)=>Iconpages(),
+        '/':(context)=>DigitalClock(),
       },
     );
   }
