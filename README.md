@@ -8,7 +8,7 @@ A brief description of what this project does and who it's for
 # Flutter Widgets Guide
 ## TextButton
 ### Description
-# TextButton is a simple button that displays text without any border or elevation. It is often used in places where a text-based clickable element is required without drawing too much attention.
+ TextButton is a simple button that displays text without any border or elevation. It is often used in places where a text-based clickable element is required without drawing too much attention.
 
 ### Usage
 ### dart
@@ -22,13 +22,17 @@ TextButton(
 )
 ```
 # Properties
-### onPressed: Callback function called when the button is tapped.
-### onLongPress: Callback function called when the button is long-pressed.
-### style: Defines the button's visual properties like color, padding, shape, etc.
-### child: Typically a Text widget that defines the button's label.
+### onPressed :
+Callback function called when the button is tapped.
+### onLongPress: 
+Callback function called when the button is long-pressed.
+### style: 
+Defines the button's visual properties like color, padding, shape, etc.
+### child: 
+Typically a Text widget that defines the button's label.
 # IconButton
 ## Description
-### IconButton is a button that displays an icon. It is commonly used in toolbars, app bars, and other places where an icon alone can represent the action.
+IconButton is a button that displays an icon. It is commonly used in toolbars, app bars, and other places where an icon alone can represent the action.
 
 ### Usage
 ### dart
