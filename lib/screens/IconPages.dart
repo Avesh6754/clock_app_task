@@ -219,3 +219,29 @@ class _IconpagesState extends State<Iconpages> {
     );
   }
 }
+            
+List<dynamic> icons = [
+  Icons.person_2_outlined,
+  Icons.location_on_outlined,
+  Icons.notifications_none_outlined,
+  Icons.payment,
+  Icons.verified_user_outlined,
+  Icons.language,
+  Icons.lock_outline,
+  Icons.help_center_outlined,
+  Icons.supervised_user_circle_outlined,
+  Icons.logout,
+];
+
+List text = [
+  'Edit Profile',
+  'Address',
+  'Notification',
+  'Payment',
+  'Security',
+  'Language',
+  'Privacy Policy',
+  'Help Center',
+  'Invite Friends',
+  'Log Out',
+];
