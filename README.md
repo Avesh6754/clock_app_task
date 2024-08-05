@@ -1,154 +1,177 @@
 # clock_app_task
 
-A new Flutter project.
-1. TextButton
-A TextButton is a button in Flutter that displays text without any borders or elevation. It's typically used for less prominent actions.
 
-Properties:
+# Project Title
 
-onPressed: A callback that is triggered when the button is pressed.
-child: The widget to display inside the button, typically a Text widget.
-style: Defines the button's visual properties (e.g., color, padding).
-Example:
+A brief description of what this project does and who it's for
 
-dart
-Copy code
+###Flutter Widgets Guide
+###TextButton
+##Description
+#TextButton is a simple button that displays text without any border or elevation. It is often used in places where a text-based clickable element is required without drawing too much attention.
+
+#Usage
+#dart
+#Copy code
+```bash
 TextButton(
   onPressed: () {
-    // Your action here
+    // Perform some action
   },
   child: Text('Text Button'),
 )
-2. IconButton
-An IconButton is a button that displays an icon and reacts to touches by filling with a color (ink splash).
+```
+###Properties
+#onPressed: Callback function called when the button is tapped.
+#onLongPress: Callback function called when the button is long-pressed.
+#style: Defines the button's visual properties like color, padding, shape, etc.
+#child: Typically a Text widget that defines the button's label.
+###IconButton
+##Description
+#IconButton is a button that displays an icon. It is commonly used in toolbars, app bars, and other places where an icon alone can represent the action.
 
-Properties:
-
-icon: The icon to display inside the button.
-onPressed: A callback that is triggered when the button is pressed.
-tooltip: A short description of the button's action (displayed when long-pressed).
-Example:
-
-dart
-Copy code
+#Usage
+#dart
+#Copy code
+```bash
 IconButton(
-  icon: Icon(Icons.add),
+  icon: Icon(Icons.favorite),
   onPressed: () {
-    // Your action here
+    // Perform some action
   },
-  tooltip: 'Add',
 )
-3. ElevatedButton
-An ElevatedButton is a button with a slight elevation above the surface, giving it a raised look.
+```
+###Properties
+#icon: The icon to display inside the button.
+#onPressed: Callback function called when the button is tapped.
+#tooltip: Text to display when the user long-presses the button (usually a brief description of the action).
+#color: Color of the icon.
+#iconSize: Size of the icon.
+###ElevatedButton
+##Description
+#ElevatedButton is a button that has a filled background and a shadow to create a sense of elevation. It is often used for primary actions.
 
-Properties:
-
-onPressed: A callback that is triggered when the button is pressed.
-child: The widget to display inside the button, typically a Text widget.
-style: Defines the button's visual properties (e.g., color, elevation).
-Example:
-
-dart
-Copy code
+#Usage
+#dart
+#Copy code
+```bash
 ElevatedButton(
   onPressed: () {
-    // Your action here
+    // Perform some action
   },
   child: Text('Elevated Button'),
 )
-4. OutlinedButton
-An OutlinedButton is a button that displays a border outline without any background color or elevation.
+```
+###Properties
+#onPressed: Callback function called when the button is tapped.
+#onLongPress: Callback function called when the button is long-pressed.
+#style: Defines the button's visual properties like color, padding, shape, etc.
+#child: Typically a Text widget that defines the button's label.
+###OutlinedButton
+##Description
+#OutlinedButton is a button with an outlined border. It is often used for secondary actions that are still important but less prominent.
 
-Properties:
-
-onPressed: A callback that is triggered when the button is pressed.
-child: The widget to display inside the button, typically a Text widget.
-style: Defines the button's visual properties (e.g., color, border).
-Example:
-
-dart
-Copy code
+#Usage
+#dart
+#Copy code
+```bash
 OutlinedButton(
   onPressed: () {
-    // Your action here
+    // Perform some action
   },
   child: Text('Outlined Button'),
 )
-5. FilledTonalButton
-A FilledTonalButton is a button with a filled background color but without the elevation of an ElevatedButton.
+```
+###Properties
+#onPressed: Callback function called when the button is tapped.
+#onLongPress: Callback function called when the button is long-pressed.
+#style: Defines the button's visual properties like color, padding, shape, etc.
+#child: Typically a Text widget that defines the button's label.
+###FilledTonalButton
+##Description
+#FilledTonalButton is a button with a filled background that has a lower emphasis compared to ElevatedButton. It's suitable for medium emphasis actions.
 
-Properties:
-
-onPressed: A callback that is triggered when the button is pressed.
-child: The widget to display inside the button, typically a Text widget.
-style: Defines the button's visual properties (e.g., color, padding).
-Example:
-
-dart
-Copy code
+#Usage
+#dart
+#Copy code
+```BASH
 FilledTonalButton(
   onPressed: () {
-    // Your action here
+    // Perform some action
   },
   child: Text('Filled Tonal Button'),
 )
-6. Drawer
-A Drawer is a panel that slides in from the side of the screen and is typically used for navigation.
+```
+###Properties
+#onPressed: Callback function called when the button is tapped.
+#onLongPress: Callback function called when the button is long-pressed.
+#style: Defines the button's visual properties like color, padding, shape, etc.
+#child: Typically a Text widget that defines the button's label.
+###Drawer
+##Description
+#Drawer is a panel that slides in from the side of the screen. It is often used for navigation purposes and can contain a list of items that the user can select.
 
-Properties:
-
-child: The widget to display inside the drawer, usually a ListView containing ListTile widgets.
-elevation: The z-coordinate at which to place the drawer.
-Example:
-
-dart
-Copy code
+#Usage
+#dart
+#Copy code
+```bash
 Drawer(
   child: ListView(
     padding: EdgeInsets.zero,
     children: <Widget>[
       DrawerHeader(
-        child: Text('Drawer Header'),
         decoration: BoxDecoration(
           color: Colors.blue,
         ),
+        child: Text(
+          'Drawer Header',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+          ),
+        ),
       ),
       ListTile(
-        title: Text('Item 1'),
+        leading: Icon(Icons.message),
+        title: Text('Messages'),
         onTap: () {
-          // Your action here
+          // Update the state of the app
+          // Then close the drawer
+          Navigator.pop(context);
         },
       ),
-      ListTile(
-        title: Text('Item 2'),
-        onTap: () {
-          // Your action here
-        },
-      ),
+      // Add more ListTiles here
     ],
   ),
 )
-7. FloatingActionButton
-A FloatingActionButton is a circular button that floats above the UI, typically used for the primary action in an application.
+```
+###Properties
+##child: Typically a ListView that contains the items to be displayed in the drawer.
+##elevation: Elevation of the drawer.
+##shape: Shape of the drawer.
+###FloatingActionButton
+##Description
+#FloatingActionButton is a circular button that floats above the content of the screen. It is often used for the primary action on a screen.
 
-Properties:
-
-onPressed: A callback that is triggered when the button is pressed.
-child: The widget to display inside the button, typically an Icon widget.
-backgroundColor: The background color of the button.
-tooltip: A short description of the button's action (displayed when long-pressed).
-Example:
-
-dart
-Copy code
+#Usage
+#dart
+#Copy code
+```bash
 FloatingActionButton(
   onPressed: () {
-    // Your action here
+    // Perform some action
   },
   child: Icon(Icons.add),
-  tooltip: 'Add',
 )
-These button widgets and the Drawer component are essential for building interactive UIs in Flutter, offering a variety of styles and use cases to fit different design needs.
+```
+###Properties
+##onPressed: Callback function called when the button is tapped.
+##child: Typically an Icon widget that defines the button's label.
+##tooltip: Text to display when the user long-presses the button (usually a brief description of the action).
+##backgroundColor: Background color of the button.
+##elevation: Elevation of the button.
+## Badges
+
 <h1 align="center">Task</h1>
 <p>
  
