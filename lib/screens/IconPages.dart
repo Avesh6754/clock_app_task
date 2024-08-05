@@ -21,7 +21,13 @@ class _IconpagesState extends State<Iconpages> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            DrawerHeader(child:CircleAvatar(radius:50,backgroundImage: AssetImage('assets/image/1.png'),)),
+            DrawerHeader(child:Column(
+              children: [
+                CircleAvatar(radius:50,backgroundImage: AssetImage('assets/image/1.png'),),
+                Text('Shofi',style: TextStyle(fontSize:25,height: 1.4,fontWeight: FontWeight.bold,letterSpacing: 1),)
+              ],
+            ),),
+
 
             ...List.generate(iconlist.length, (indxe)=>drawer(name: iconlist[indxe]['name'], data:iconlist[indxe]['icon'])),
             SizedBox(height: 20,),
