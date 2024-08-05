@@ -2,7 +2,6 @@
 
 // import 'dart:nativewrappers/_internal/vm/lib/core_patch.dart';
 
-import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +17,18 @@ class _IconpagesState extends State<Iconpages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            DrawerHeader(child:CircleAvatar(radius:50,backgroundImage: AssetImage('assets/image/1.png'),)),
+
+            ...List.generate(iconlist.length, (indxe)=>drawer(name: iconlist[indxe]['name'], data:iconlist[indxe]['icon'])),
+            SizedBox(height: 20,),
+
+           ]
+        ),
+      ),
       appBar: AppBar(
         title: const Text(
           "Actions",
@@ -316,6 +327,17 @@ class _IconpagesState extends State<Iconpages> {
         ),
       ),
     );
+  }
+
+  Row drawer({required String name,required var data}) {
+    return Row(
+            children: [
+              SizedBox(width: 10,),
+              Icon(data,size: 35,color: Colors.grey,),
+              SizedBox(width: 20,),
+              Text("$name",style:TextStyle(fontSize: 23,fontWeight: FontWeight.w500),)
+            ],
+          );
   }
 
   Icon iconudf({
