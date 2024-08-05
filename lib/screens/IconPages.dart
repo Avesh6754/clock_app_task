@@ -316,6 +316,7 @@ class _IconpagesState extends State<Iconpages> {
                         icon: const Icon(
                           Icons.settings,
                           color: Colors.grey,
+
                         ),
                       ),
                     ],
