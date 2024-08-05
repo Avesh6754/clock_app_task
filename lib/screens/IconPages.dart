@@ -28,7 +28,6 @@ class _IconpagesState extends State<Iconpages> {
       body: Padding(
         padding: const EdgeInsets.only(left: 15, right: 15),
         child: Column(
-
           children: [
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -110,7 +109,9 @@ class _IconpagesState extends State<Iconpages> {
                                   Colors.grey.shade300)),
                           onPressed: () {},
                           child: commonbutton(
-                              name: "Filled Tonal", size: 15, color: Colors.grey))
+                              name: "Filled Tonal",
+                              size: 15,
+                              color: Colors.grey))
                     ],
                   ),
                   Row(
@@ -126,7 +127,8 @@ class _IconpagesState extends State<Iconpages> {
                       ),
                       OutlinedButton(
                           style: ButtonStyle(
-                             overlayColor: WidgetStateProperty.all(Colors.grey)),
+                              overlayColor:
+                                  WidgetStateProperty.all(Colors.grey)),
                           onPressed: () {},
                           child: commonbutton(
                               name: "Outlined", size: 15, color: Colors.grey))
@@ -138,14 +140,18 @@ class _IconpagesState extends State<Iconpages> {
                       TextButton(
                           onPressed: () {},
                           child: commonbutton(name: "  Text", size: 15)),
-                      SizedBox(width: 10,),TextButton.icon(
+                      SizedBox(
+                        width: 10,
+                      ),
+                      TextButton.icon(
                         onPressed: () {},
                         icon: iconudf(size: 25, data: Icons.add),
                         label: commonbutton(name: "Icon", size: 20),
                       ),
                       TextButton(
                           style: ButtonStyle(
-                              overlayColor: WidgetStateProperty.all(Colors.grey)),
+                              overlayColor:
+                                  WidgetStateProperty.all(Colors.grey)),
                           onPressed: () {},
                           child: commonbutton(
                               name: "Text", size: 15, color: Colors.grey))
@@ -154,48 +160,158 @@ class _IconpagesState extends State<Iconpages> {
                 ],
               ),
             ),
-            Text(
-                'Icon Buttons',
-                style: TextStyle(fontSize: 20),
-              ),
-              Container(
-                height: 100,
-                width: double.infinity,
-                padding: const EdgeInsets.all(10),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(),
+            SizedBox(height: 20,),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Floating Button',
+                  style: TextStyle(fontSize: 20),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton.filledTonal(
-                      onPressed: () {},
-                      icon: const Icon(Icons.settings, color: Colors.black87),
-                    ),
-                    IconButton.outlined(
-                      onPressed: () {},
-                      icon: const Icon(Icons.shopping_cart,
-                          color: Colors.black87),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.favorite,
-                        color: Colors.black87,
-                      ),
-                    ),
-                    IconButton.filled(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.menu,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
+                Icon(Icons.info_outline)
+              ],
+            ),
+            Container(
+              height: 150,
+              width: double.infinity,
+              padding: const EdgeInsets.all(10),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  FloatingActionButton.small(
+                    onPressed: () {},
+                    child: Icon(Icons.add),
                   ),
-
+                  FloatingActionButton(
+                    onPressed: () {},
+                    child: Icon(Icons.add),
+                  ),
+                  FloatingActionButton.extended(
+                    label: commonbutton(name: "create", size: 25),
+                    icon: iconudf(size: 15, data: Icons.add),
+                    onPressed: () {},
+                  ),
+                  FloatingActionButton.large(
+                    onPressed: () {},
+                    child: Icon(Icons.add),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 20,),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Icon Buttons ',
+                  style: TextStyle(fontSize: 20),
+                ),
+                Icon(Icons.info_outline)
+              ],
+            ),
+            Container(
+              height: 140,
+              width: double.infinity,
+              padding: const EdgeInsets.all(10),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(),
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.settings,
+                        ),
+                      ),
+                      IconButton.filledTonal(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                WidgetStateProperty.all(Colors.grey.shade300)),
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.settings,
+                        ),
+                      ),
+                      IconButton.filled(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                WidgetStateProperty.all(Colors.grey.shade300)),
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.settings,
+                          color: Colors.black38,
+                        ),
+                      ),
+                      IconButton.outlined(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.settings,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.settings,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      IconButton.filledTonal(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                WidgetStateProperty.all(Colors.grey.shade300)),
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.settings,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      IconButton.filled(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                WidgetStateProperty.all(Colors.grey.shade300)),
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.settings,
+                          color: Colors.black38,
+                        ),
+                      ),
+                      IconButton.outlined(
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStateProperty.all(
+                            Colors.grey.shade300,
+                          ),
+                        ),
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.settings,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
@@ -219,26 +335,17 @@ class _IconpagesState extends State<Iconpages> {
     );
   }
 }
-            
-List iconlist=[
-{'name':'interest',
-'icon':Icons.article},
-{'name':'My Course ',
-'icon':Icons.video_settings},
-{'name':'Todo/Done',
-'icon':Icons.trending_up},
-{'name':'Offline Articles',
-'icon':Icons.download
-},
-{'name':'Rate us',
-'icon':Icons.star},
-{'name':'Support ',
-'icon':Icons.support_agent
-},
-{'name':'Setting',
-'icon':Icons.settings
-},
-{'name':'Log out',
-'icon':Icons.logout,
-}
+
+List iconlist = [
+  {'name': 'interest', 'icon': Icons.article},
+  {'name': 'My Course ', 'icon': Icons.video_settings},
+  {'name': 'Todo/Done', 'icon': Icons.trending_up},
+  {'name': 'Offline Articles', 'icon': Icons.download},
+  {'name': 'Rate us', 'icon': Icons.star},
+  {'name': 'Support ', 'icon': Icons.support_agent},
+  {'name': 'Setting', 'icon': Icons.settings},
+  {
+    'name': 'Log out',
+    'icon': Icons.logout,
+  }
 ];
