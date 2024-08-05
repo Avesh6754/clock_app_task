@@ -153,7 +153,48 @@ class _IconpagesState extends State<Iconpages> {
                   ),
                 ],
               ),
-            )
+            ),
+            Text(
+                'Icon Buttons',
+                style: TextStyle(fontSize: 20),
+              ),
+              Container(
+                height: 100,
+                width: double.infinity,
+                padding: const EdgeInsets.all(10),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton.filledTonal(
+                      onPressed: () {},
+                      icon: const Icon(Icons.settings, color: Colors.black87),
+                    ),
+                    IconButton.outlined(
+                      onPressed: () {},
+                      icon: const Icon(Icons.shopping_cart,
+                          color: Colors.black87),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.favorite,
+                        color: Colors.black87,
+                      ),
+                    ),
+                    IconButton.filled(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.menu,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                  ),
 
           ],
         ),
