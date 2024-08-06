@@ -90,7 +90,10 @@ flutter:
   fonts:
     - family: Digital
       fonts:
-        - asset: assets/image/digital.ttf
+        - asset: assets/fonts/digital.ttf
+    - family: Gupter
+      fonts:
+        - asset: assets/fonts/Gupter-Regular.ttf
 
 
   #
