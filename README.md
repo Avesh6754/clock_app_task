@@ -1,4 +1,4 @@
-# clock_app_task
+![4](https://github.com/user-attachments/assets/6b4ae7a9-e872-462e-af68-cc50c721faad)![5](https://github.com/user-attachments/assets/808feef0-70fd-4d34-8098-e317d5d75a0d)# clock_app_task
 
 
 # Project Title
@@ -447,6 +447,18 @@ It updates the clock object to the current time.
 ### Repeat: 
 This process repeats indefinitely, or until the timer is canceled.
 
+
+
+<h1 align="center">Digital Clock</h1>
+<p>
+ 
+  <img src="https://github.com/user-attachments/assets/db801d92-7615-43c1-85b5-0f50e54f2e04" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/c3ac1d19-fd16-4880-b82b-3adc0ab370ac" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/4a632de4-7610-4957-91e9-b535a779c16c" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/d3ec875d-4343-4232-81d5-127fb86e9e18" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/3268f70c-2d9c-4838-9cf9-bb381b49edf8" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/69ea5fcd-cc40-42ef-9453-1e0d4cafb6c5" width="22%" Height="35%">
+   </p>
 
 https://github.com/user-attachments/assets/be69bd78-e730-4a88-990a-620607b83eef
 
