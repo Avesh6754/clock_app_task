@@ -29,7 +29,6 @@ class _DigitalClockState extends State<DigitalClock> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -46,30 +45,30 @@ class _DigitalClockState extends State<DigitalClock> {
                 Text(
                   "${(future.hour % 12 == 0) ? 12.toString().padLeft(2, '0') : (future.hour % 12).toString().padLeft(2, '0')}:${future.minute.toString().padLeft(2, '0')}",
                   style: const TextStyle(
-                      fontSize: 70,
+                      fontSize: 80,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                       fontFamily: 'Digital'),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Text(
                   '${future.second.toString().padLeft(2, '0')}',
-                  style: TextStyle(
-                      fontSize: 30,
+                  style: const TextStyle(
+                      fontSize: 40,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
                       height: -2,
                       fontFamily: 'Digital'),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Text(
                   '${(future.hour < 12) ? 'AM' : "PM"}',
-                  style: TextStyle(
-                      fontSize: 30,
+                  style: const TextStyle(
+                      fontSize: 40,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
                       height: -2,
@@ -83,15 +82,21 @@ class _DigitalClockState extends State<DigitalClock> {
                 Text(
                     '${days[future.weekday - 1]} ${future.day} ${month[future.month - 1]}',
                     style: const TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.w600,
+                        fontSize: 35,
+                        fontWeight: FontWeight.w700,
                         color: Colors.white,
                         fontFamily: 'Digital'))
               ],
             ),
-            Spacer(
-              flex: 4,
-            )
+            const Spacer(
+              flex : 4,
+            ),
+            Spacer(flex: 2,),
+            OutlinedButton(style: ButtonStyle(side:WidgetStateProperty.all(BorderSide(color: Colors.grey,width: 2))),onPressed: () {
+            Navigator.of(context).pushNamed('/analog');
+            }, child:Text('Next',style: TextStyle(fontSize: 30,color: Colors.black54,fontWeight: FontWeight.w600
+              ,),)),
+            Spacer(),
           ],
         ),
       ),
@@ -104,16 +109,16 @@ var name = '0';
 String background(DateTime future) {
   final hour = future.hour;
   if (hour >= 0 && hour < 6) {
-    return 'assets/image/6.gif';
+    return 'assets/image/6.jpg';
   } else if (hour >= 6 && hour < 9) {
-    return 'assets/image/1.gif';
+    return 'assets/image/1.jpg';
   } else if (hour >= 9 && hour < 12) {
-    return 'assets/image/2.gif';
+    return 'assets/image/2.jpg';
   } else if (hour >= 12 && hour < 16) {
-    return 'assets/image/3.gif';
+    return 'assets/image/3.jpg';
   } else if (hour >= 16 && hour < 19) {
-    return 'assets/image/4.gif';
+    return 'assets/image/4.jpg';
   } else {
-    return 'assets/image/5.gif';
+    return 'assets/image/5.jpg';
   }
 }
