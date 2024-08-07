@@ -447,7 +447,8 @@ This process repeats indefinitely, or until the timer is canceled.
 
 
 
-<h1 align="center">Dgital Clock</h1>
+<h1 align="center">Digital Clock</h1>
+
 ## Description
 
 To create a digital clock app in Flutter that changes its background image based on the time of day, you can incorporate several features to enhance the functionality and user experience. Here’s a detailed description of the features you might want to include:
