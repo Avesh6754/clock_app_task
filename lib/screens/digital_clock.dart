@@ -18,7 +18,7 @@ class _DigitalClockState extends State<DigitalClock> {
     super.initState();
     Timer.periodic(
       Duration(seconds: 1),
-      (timer) {
+          (timer) {
         setState(() {
           future = DateTime.now();
         });
@@ -36,7 +36,7 @@ class _DigitalClockState extends State<DigitalClock> {
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(
-                    '${(name == 'AM') ? background(future) : backgroundPM(future)}'),
+                    '${ background(future)}'),
                 fit: BoxFit.cover)),
         child: Column(
           children: [
@@ -66,7 +66,7 @@ class _DigitalClockState extends State<DigitalClock> {
                   width: 10,
                 ),
                 Text(
-                  '${name = (future.hour > 12) ? 'PM' : "AM"}',
+                  '${(future.hour < 12) ? 'AM' : "PM"}',
                   style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w600,
@@ -102,22 +102,26 @@ var name = '0';
 
 String background(DateTime future) {
   final hour = future.hour;
-  if (hour >= 6 && hour < 9) {
-    return 'assets/image/1.gif';
-  } else if (hour >= 9 && hour < 12) {
-    return 'assets/image/2.gif';
-  } else {
+  if (hour >= 0 && hour < 6) {
     return 'assets/image/6.gif';
+  } else if (hour >= 6 && hour < 9) {
+    return 'assets/image/1.gif';
   }
-}
-
-String backgroundPM(DateTime future) {
-  final hour = future.hour;
-  if (hour >= 7 && hour < 12) {
-    return 'assets/image/5.gif';
-  } else if (hour >= 4 && hour < 7) {
-    return 'assets/image/4.gif';
-  } else {
+  else if (hour >= 9 && hour < 12)
+  {
+    return 'assets/image/2.gif';
+  }
+  else if (hour >= 12 && hour < 16)
+  {
     return 'assets/image/3.gif';
   }
+  else if (hour >= 16 && hour < 19)
+  {
+    return 'assets/image/4.gif';
+  }
+  else
+  {
+    return 'assets/image/5.gif';
+  }
+
 }
