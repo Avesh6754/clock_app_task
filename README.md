@@ -458,10 +458,13 @@ To create a digital clock app in Flutter that changes its background image based
 The app changes its background image according to the time of day. 
 ### For example:
 
-Morning (6 AM - 12 PM): Use a morning-themed image.
-Afternoon (12 PM - 6 PM): Use an afternoon-themed image.
-Evening (6 PM - 9 PM): Use an evening-themed image.
-Night (9 PM - 6 AM): Use a night-themed image.
+#### Morning (6 AM - 12 PM): Use a morning-themed image.
+
+#### Afternoon (12 PM - 6 PM): Use an afternoon-themed image.
+
+#### Evening (6 PM - 9 PM): Use an evening-themed image.
+
+#### Night (9 PM - 6 AM): Use a night-themed image.
 Implementation:
 
 Use DateTime.now().hour to get the current hour.
