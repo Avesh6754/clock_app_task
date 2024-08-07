@@ -46,7 +46,7 @@ class _DigitalClockState extends State<DigitalClock> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  "${(future.hour%12==0)?12.toString().padLeft(2,'0'):(future.hour%12).toString().padLeft(2,'0')} : ${future.minute.toString().padLeft(2, '0')}",
+                  "${(future.hour%12==0)?12.toString().padLeft(2,'0'):(future.hour%12).toString().padLeft(2,'0')}:${future.minute.toString().padLeft(2, '0')}",
                   style: const TextStyle(
                       fontSize: 70,
                       fontWeight: FontWeight.bold,
