@@ -447,7 +447,7 @@ This process repeats indefinitely, or until the timer is canceled.
 
 
 
-<h1 align="center">Digital Clock</h1>
+<h1 align="center">🔶🔸Digital Clock🔸🔶</h1>
 
 ## Description
 
