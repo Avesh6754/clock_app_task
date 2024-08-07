@@ -1,7 +1,5 @@
-![4](https://github.com/user-attachments/assets/6b4ae7a9-e872-462e-af68-cc50c721faad)![5](https://github.com/user-attachments/assets/808feef0-70fd-4d34-8098-e317d5d75a0d)# clock_app_task
+# clock_app_task
 
-
-# Project Title
 
 A brief description of what this project does and who it's for
 
