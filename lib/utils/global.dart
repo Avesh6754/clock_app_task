@@ -26,11 +26,7 @@ List month = [
   'Dec',
 ];
 
-List backgrounggift=[
-  'assets/image/1.gif',
-  'assets/image/2.gif',
-  'assets/image/3.gif',
-  'assets/image/4.gif',
-  'assets/image/5.gif',
-  'assets/image/6.gif'
-];
+var second=0;
+var minutes=0;
+var hour=0;
+bool stop=false;

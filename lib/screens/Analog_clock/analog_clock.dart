@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_analog_clock/animated_analog_clock.dart';
 import '../../utils/global.dart';
@@ -41,49 +42,74 @@ class _AnalogClockState extends State<AnalogClock> {
         child: Stack(
           alignment: Alignment.center,
           children: [
+           Transform.scale(scale:2,
+             child: Container(
+               height: 140,
+               width: 140,
 
-            Container(
-              height: 300,
-              width: 300,
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.white, width: 2)),
+               child: CircularProgressIndicator(
+                 strokeAlign: 1,
+                 color: Colors.white,
+                  value: future.second/60,
+               ),
+             ),
+           ),
+            ...List.generate(
+              60,
+              (index) => Transform.rotate(
+                angle: (index * 6) * pi / 180,
+                child: VerticalDivider(
+                  color: (index%5==0)?Colors.black:Colors.white,
+                  thickness:(index%5==0)?4:2,
+                  endIndent:(index%5==0)? 480:490,
+                  indent:253,
+                ),
+              ),
             ),
-
+            const CircleAvatar(
+              radius: 6,
+              backgroundColor: Colors.black26,
+            ),
             Transform.rotate(
               angle: ((future.hour * 30) + future.minute * 0.5) * pi / 180,
-              child: VerticalDivider(
+              child: const VerticalDivider(
                 thickness: 4,
                 color: Colors.black,
                 endIndent: 360,
-                indent: 310,
+                indent: 320,
               ),
             ),
             Transform.rotate(
               angle: (future.minute * 6) * pi / 180,
-              child: VerticalDivider(
+              child: const VerticalDivider(
                 thickness: 3,
                 color: Colors.black,
                 endIndent: 360,
-                indent: 280,
+                indent: 290,
               ),
             ),
             Transform.rotate(
               angle: (future.second * 6) * pi / 180,
-              child: VerticalDivider(
+              child: const VerticalDivider(
                 thickness: 2,
                 color: Colors.red,
                 endIndent: 360,
-                indent: 260,
+                indent: 280,
               ),
             ),
-            CircleAvatar(
-              radius: 6,
-              backgroundColor: Colors.black26,
-            )
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Align(alignment: Alignment.bottomCenter,
+                    child: OutlinedButton(style: ButtonStyle(side:WidgetStateProperty.all(BorderSide(color: Colors.grey,width: 2))),onPressed: () {
+                        Navigator.of(context).pushNamed('/strap');
+                        }, child:Text('Next',style: TextStyle(fontSize: 30,color: Colors.black54,fontWeight: FontWeight.w600
+                        ,),)),
+                  ),
+                ),
+
           ],
         ),
-      ),
+      )
     );
   }
 }
