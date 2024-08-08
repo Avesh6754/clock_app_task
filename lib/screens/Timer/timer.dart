@@ -1,47 +1,15 @@
-import 'dart:async';
-
-import 'package:clock_app_task/utils/global.dart';
 import 'package:flutter/material.dart';
 
-class StrapWatch extends StatefulWidget {
-  const StrapWatch({super.key});
+import '../../utils/global.dart';
+
+class Timer extends StatefulWidget {
+  const Timer({super.key});
 
   @override
-  State<StrapWatch> createState() => _StrapWatchState();
+  State<Timer> createState() => _TimerState();
 }
 
-class _StrapWatchState extends State<StrapWatch> {
-  void strapwatchlogic() {
-    Timer.periodic(
-      Duration(seconds: 1),
-      (timer) {
-        setState(() {
-          if(stop)
-            {
-              second++;
-              if (second > 59) {
-                minutes++;
-                second = 0;
-                if (minutes > 59) {
-                  hour++;
-                  minutes = 0;
-                  second = 0;
-                }
-              }
-            }
-
-        });
-      },
-    );
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    strapwatchlogic();
-  }
-
+class _TimerState extends State<Timer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,22 +25,30 @@ class _StrapWatchState extends State<StrapWatch> {
             Text(
               "${hour.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}:${second.toString().padLeft(2, '0')}",
               style: const TextStyle(
-                color: Colors.white,
+                  color: Colors.white,
 
-                fontSize: 50,
-                height: -5
+                  fontSize: 50,
+                  height: -5
               ),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                ElevatedButton(style: ButtonStyle(backgroundColor: WidgetStateProperty.all(Colors.white24)),
-                  onPressed: () {
-                   Navigator.of(context).pushNamed('/timer');
-                  },
-                  child: const Text(
-                    'NextPage',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                Container(
+                  height:50,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.white24,
+                    borderRadius: BorderRadius.circular(25)
+                  ),
+                  child: TextField(
+                    controller: TextEditingController(
+                      text: 'sks',
+
+                    ),
+                    decoration: InputDecoration(
+
+                    ),
                   ),
                 ),
                 Padding(
