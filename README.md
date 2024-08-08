@@ -531,7 +531,9 @@ Adjust the clock display and app text according to the user’s locale settings.
   <img src="https://github.com/user-attachments/assets/d3ec875d-4343-4232-81d5-127fb86e9e18" width="22%" Height="35%">
   <img src="https://github.com/user-attachments/assets/3268f70c-2d9c-4838-9cf9-bb381b49edf8" width="22%" Height="35%">
   <img src="https://github.com/user-attachments/assets/69ea5fcd-cc40-42ef-9453-1e0d4cafb6c5" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/7c0a85e6-6e86-4a7f-b668-0dcf246ed3f2" width="22%" Height="35%">
    </p>
+
 
 https://github.com/user-attachments/assets/be69bd78-e730-4a88-990a-620607b83eef
 
