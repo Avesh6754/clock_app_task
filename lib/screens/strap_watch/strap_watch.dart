@@ -58,6 +58,7 @@ class _StrapWatchState extends State<StrapWatch> {
               "${hour.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}:${second.toString().padLeft(2, '0')}",
               style: const TextStyle(
                 color: Colors.white,
+
                 fontSize: 50,
                 height: -5
               ),
