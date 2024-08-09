@@ -68,7 +68,7 @@ class _StrapWatchState extends State<StrapWatch> {
               children: [
                 ElevatedButton(style: ButtonStyle(backgroundColor: WidgetStateProperty.all(Colors.white24)),
                   onPressed: () {
-                   Navigator.of(context).pushNamed('/timer');
+                   Navigator.of(context).pushNamed('/timepage');
                   },
                   child: const Text(
                     'NextPage',

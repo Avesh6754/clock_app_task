@@ -1,5 +1,4 @@
 import 'package:clock_app_task/screens/Analog_clock/analog_clock.dart';
-import 'package:clock_app_task/screens/IconPages.dart';
 import 'package:clock_app_task/screens/Timer/timer.dart';
 import 'package:clock_app_task/screens/digital_clock.dart';
 import 'package:clock_app_task/screens/strap_watch/strap_watch.dart';
@@ -21,7 +20,7 @@ class Myapp extends StatelessWidget {
         '/':(context)=>DigitalClock(),
         '/analog':(context)=>AnalogClock(),
         '/strap':(context)=>StrapWatch(),
-        '/timer':(context)=>Timer(),
+        '/timepage':(context)=>Timerpage(),
       },
     );
   }

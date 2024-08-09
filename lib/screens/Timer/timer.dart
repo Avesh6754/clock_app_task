@@ -1,64 +1,51 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
-import '../../utils/global.dart';
 
-class Timer extends StatefulWidget {
-  const Timer({super.key});
+import 'package:clock_app_task/utils/global.dart';
+import 'package:flutter/material.dart';
+
+class Timerpage extends StatefulWidget {
+  const Timerpage({super.key});
 
   @override
-  State<Timer> createState() => _TimerState();
+  State<Timerpage> createState() => _TimerpageState();
 }
 
-final TextEditingController myminutes = TextEditingController();
-final TextEditingController myhour = TextEditingController();
-
-
-class _TimerState extends State<Timer> {
-  void timerclock()async
-  {
-    await Future.delayed(
+class _TimerpageState extends State<Timerpage> {
+  void timewatchlogic() {
+    Timer.periodic(
       Duration(seconds: 1),
-          () {
+      (timer) {
         setState(() {
-          if(stop)
-          {
-            second--;
-            if (second > 59) {
-              minutes--;
-              second = 0;
-              if (minutes > 59) {
-                hour--;
-                minutes = 0;
-                second = 0;
+          if (stoptimer) {
+            secondtimer--;
+            if (secondtimer < 0) {
+              minutestimer--;
+              secondtimer = 59;
+              if (minutestimer < 0) {
+                hourtimer--;
+                minutestimer = 59;
+                secondtimer = 59;
               }
             }
           }
-
         });
       },
     );
   }
-  @override
-  // void dispose() {
-  //   // TODO: implement dispose
-  //   myhour.dispose();
-  //   myminutes.dispose();
-  //   super.dispose();
-  // }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    timerclock();
-
+    timewatchlogic();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
           height: double.infinity,
           width: double.infinity,
-          
           decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('assets/image/8.jpg'), fit: BoxFit.cover),
@@ -76,53 +63,74 @@ class _TimerState extends State<Timer> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      height: 50,
-                      width: 150,
-                      decoration: BoxDecoration(
-                          color: Colors.white12,
-                          borderRadius: BorderRadius.circular(5)),
+                    SizedBox(
+                      width: 100,
                       child: TextField(
                         controller: myhour,
                         keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
+                        style: TextStyle(fontSize: 18,color: Colors.white),
+                        decoration: const InputDecoration(
+
                           border: OutlineInputBorder(),
                           labelText: 'Hour',
-                          hintText: 'Enter',
+                          labelStyle: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
 
+                          hintText: 'Enter',
+                          hintStyle: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white54),
                         ),
                       ),
                     ),
-                    Container(
-                      height: 50,
-                      width: 150,
-                      decoration: BoxDecoration(
-                          color: Colors.white12,
-                          borderRadius: BorderRadius.circular(5)),
+                    SizedBox(
+                      width: 100,
                       child: TextField(
                         controller: myminutes,
+                        style: TextStyle(fontSize: 18,color: Colors.white),
                         keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Minutes',
+                          labelStyle: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
                           hintText: 'Enter',
+                          hintStyle: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white54),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 100,
+                      child: TextField(
+                        controller: mysecond,
+                        style: TextStyle(fontSize: 18,color: Colors.white),
+                        keyboardType: TextInputType.number,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Second',
+                          labelStyle: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
+                          hintText: 'Enter',
+                          hintStyle: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white54),
                         ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                IconButton.filled(style: ButtonStyle(fixedSize: WidgetStateProperty.all(Size(50, 50))),onPressed: () {
-                    setState(() {
-                      hour=int.parse(myhour.text);
-                      minutes=int.parse(myminutes.text);
-                    });
-                }, icon: Icon(Icons.add)),
-                SizedBox(
-                  height: 20,
-                ),
+                SizedBox(height: 20,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -134,7 +142,10 @@ class _TimerState extends State<Timer> {
                                   WidgetStateProperty.all(Colors.white24)),
                           onPressed: () {
                             setState(() {
-                              stop = true;
+                              stoptimer = true;
+                              secondtimer=int.parse(mysecond.text);
+                              minutestimer=int.parse(myminutes.text);
+                              hourtimer=int.parse(myhour.text);
                             });
                           },
                           child: const Text(
@@ -148,7 +159,7 @@ class _TimerState extends State<Timer> {
                                   WidgetStateProperty.all(Colors.white24)),
                           onPressed: () {
                             setState(() {
-                              stop = false;
+                              stoptimer = false;
                             });
                           },
                           child: const Text(
@@ -162,10 +173,10 @@ class _TimerState extends State<Timer> {
                                   WidgetStateProperty.all(Colors.white24)),
                           onPressed: () {
                             setState(() {
-                              stop = false;
-                              second = 0;
-                              minutes = 0;
-                              hour = 0;
+                              stoptimer = false;
+                              secondtimer = 0;
+                              minutestimer = 0;
+                              hourtimer = 0;
                             });
                           },
                           child: const Text(
