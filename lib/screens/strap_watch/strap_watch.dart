@@ -14,21 +14,21 @@ class _StrapWatchState extends State<StrapWatch> {
   void strapwatchlogic() {
     Timer.periodic(
       Duration(seconds: 1),
-      (timer) {
+          (timer) {
         setState(() {
           if(stop)
-            {
-              second++;
-              if (second > 59) {
-                minutes++;
+          {
+            second++;
+            if (second > 59) {
+              minutes++;
+              second = 0;
+              if (minutes > 59) {
+                hour++;
+                minutes = 0;
                 second = 0;
-                if (minutes > 59) {
-                  hour++;
-                  minutes = 0;
-                  second = 0;
-                }
               }
             }
+          }
 
         });
       },
@@ -57,10 +57,10 @@ class _StrapWatchState extends State<StrapWatch> {
             Text(
               "${hour.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}:${second.toString().padLeft(2, '0')}",
               style: const TextStyle(
-                color: Colors.white,
+                  color: Colors.white,
 
-                fontSize: 50,
-                height: -5
+                  fontSize: 50,
+                  height: -5
               ),
             ),
             Column(
@@ -68,7 +68,7 @@ class _StrapWatchState extends State<StrapWatch> {
               children: [
                 ElevatedButton(style: ButtonStyle(backgroundColor: WidgetStateProperty.all(Colors.white24)),
                   onPressed: () {
-                   Navigator.of(context).pushNamed('/timepage');
+                    Navigator.of(context).pushNamed('/timepage');
                   },
                   child: const Text(
                     'NextPage',

@@ -38,6 +38,8 @@ dependencies:
   one_clock: ^2.0.1
   flutter_analog_clock: ^1.0.3
   animated_analog_clock: ^0.1.0
+  animated_icon: ^0.0.9
+  numberpicker: ^2.1.2
 
 dev_dependencies:
   flutter_test:

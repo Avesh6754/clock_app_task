@@ -1,7 +1,8 @@
 import 'dart:async';
-
+import 'package:animated_icon/animated_icon.dart';
 import 'package:clock_app_task/utils/global.dart';
 import 'package:flutter/material.dart';
+import 'package:numberpicker/numberpicker.dart';
 
 class Timerpage extends StatefulWidget {
   const Timerpage({super.key});
@@ -10,24 +11,32 @@ class Timerpage extends StatefulWidget {
   State<Timerpage> createState() => _TimerpageState();
 }
 
-class _TimerpageState extends State<Timerpage> {
-  void timewatchlogic() {
+class _TimerpageState extends State<Timerpage>
+{
+  int  _currenthour=0;
+  int  _currentminutes=0;
+  int  _currentsecond=0;
+  bool isplay=true;
+  void strapwatchlogic() {
     Timer.periodic(
       Duration(seconds: 1),
       (timer) {
         setState(() {
-          if (stoptimer) {
-            secondtimer--;
-            if (secondtimer < 0) {
-              minutestimer--;
-              secondtimer = 59;
-              if (minutestimer < 0) {
-                hourtimer--;
-                minutestimer = 59;
-                secondtimer = 59;
+          if(secondtimer!=0 || hourtimer!=0 || minutestimer!=0)
+            {
+              if (stoptimer) {
+                secondtimer--;
+                if (secondtimer < 0 ) {
+                  minutestimer--;
+                  secondtimer = 59;
+                  if (minutestimer < 0) {
+                    hourtimer--;
+                    minutestimer = 59;
+                    secondtimer = 59;
+                  }
+                }
               }
             }
-          }
         });
       },
     );
@@ -37,7 +46,8 @@ class _TimerpageState extends State<Timerpage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    timewatchlogic();
+    strapwatchlogic();
+
   }
 
   @override
@@ -47,148 +57,131 @@ class _TimerpageState extends State<Timerpage> {
           height: double.infinity,
           width: double.infinity,
           decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/image/8.jpg'), fit: BoxFit.cover),
+            color: Colors.black
+            // image: DecorationImage(
+            //     image: AssetImage('assets/image/8.jpg'), fit: BoxFit.cover),
           ),
           alignment: Alignment.center,
           child: Stack(alignment: Alignment.center, children: [
             Text(
-              "${hour.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}:${second.toString().padLeft(2, '0')}",
+              "${hourtimer.toString().padLeft(2, '0')}:${minutestimer.toString().padLeft(2, '0')}:${secondtimer.toString().padLeft(2, '0')}",
               style: const TextStyle(
                   color: Colors.white, fontSize: 50, height: -5),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                Spacer(flex: 3,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SizedBox(
-                      width: 100,
-                      child: TextField(
-                        controller: myhour,
-                        keyboardType: TextInputType.number,
-                        style: TextStyle(fontSize: 18,color: Colors.white),
-                        decoration: const InputDecoration(
 
-                          border: OutlineInputBorder(),
-                          labelText: 'Hour',
-                          labelStyle: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white),
+                    Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        border: Border.symmetric(vertical: BorderSide(color: Colors.grey,width: 0.2)),
+                      ),
+                      child: NumberPicker(
+                        axis: Axis.vertical,
+                        itemHeight: 45,
+                        itemWidth: 45.0,
+                        step: 1,
 
-                          hintText: 'Enter',
-                          hintStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white54),
+                        selectedTextStyle: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
                         ),
+                        textStyle: const TextStyle(
+                          color: Colors.grey,
+                          fontSize: 25,
+                        ),
+                        itemCount: 3,
+                        value: _currenthour,
+                        minValue: 0,
+                        maxValue: 99,
+                        onChanged: (v) {
+                          setState(() {
+                            _currenthour = v;
+                          });
+                        },
                       ),
                     ),
-                    SizedBox(
-                      width: 100,
-                      child: TextField(
-                        controller: myminutes,
-                        style: TextStyle(fontSize: 18,color: Colors.white),
-                        keyboardType: TextInputType.number,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Minutes',
-                          labelStyle: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white),
-                          hintText: 'Enter',
-                          hintStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white54),
+                    Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        border: Border.symmetric(vertical: BorderSide(color: Colors.grey,width: 0.2)),
+                      ),
+                      child: NumberPicker(
+                        axis: Axis.vertical,
+                        itemHeight: 45,
+                        itemWidth: 45.0,
+                        step: 1,
+                        selectedTextStyle: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
                         ),
+                        textStyle: const TextStyle(
+                          color: Colors.grey,
+                          fontSize: 25,
+                        ),
+                        itemCount: 3,
+                        value: _currentminutes,
+                        minValue: 0,
+                        maxValue: 59,
+                        onChanged: (v) {
+                          setState(() {
+                            _currentminutes = v;
+                          });
+                        },
                       ),
                     ),
-                    SizedBox(
-                      width: 100,
-                      child: TextField(
-                        controller: mysecond,
-                        style: TextStyle(fontSize: 18,color: Colors.white),
-                        keyboardType: TextInputType.number,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Second',
-                          labelStyle: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white),
-                          hintText: 'Enter',
-                          hintStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white54),
+                    Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        border: Border.symmetric(vertical: BorderSide(color: Colors.grey,width: 0.2)),
+                      ),
+                      child: NumberPicker(
+                        axis: Axis.vertical,
+                        itemHeight: 45,
+                        itemWidth: 45.0,
+                        step: 1,
+                        selectedTextStyle: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
                         ),
+                        textStyle: const TextStyle(
+                          color: Colors.grey,
+                          fontSize: 25,
+                        ),
+                        itemCount: 3,
+                        value: _currentsecond,
+                        minValue: 0,
+                        maxValue: 59,
+                        onChanged: (v) {
+                          setState(() {
+                            _currentsecond = v;
+                          });
+                        },
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 20,),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor:
-                                  WidgetStateProperty.all(Colors.white24)),
-                          onPressed: () {
-                            setState(() {
-                              stoptimer = true;
-                              secondtimer=int.parse(mysecond.text);
-                              minutestimer=int.parse(myminutes.text);
-                              hourtimer=int.parse(myhour.text);
-                            });
-                          },
-                          child: const Text(
-                            'Start',
-                            style: TextStyle(fontSize: 20, color: Colors.white),
-                          ),
-                        ),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor:
-                                  WidgetStateProperty.all(Colors.white24)),
-                          onPressed: () {
-                            setState(() {
-                              stoptimer = false;
-                            });
-                          },
-                          child: const Text(
-                            'Pause',
-                            style: TextStyle(fontSize: 20, color: Colors.white),
-                          ),
-                        ),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor:
-                                  WidgetStateProperty.all(Colors.white24)),
-                          onPressed: () {
-                            setState(() {
-                              stoptimer = false;
-                              secondtimer = 0;
-                              minutestimer = 0;
-                              hourtimer = 0;
-                            });
-                          },
-                          child: const Text(
-                            'Reset',
-                            style: TextStyle(fontSize: 20, color: Colors.white),
-                          ),
-                        ),
-                      ]),
-                ),
+                Spacer(),
+                ElevatedButton(onPressed: () {
+                  setState(() {
+                    isplay=!isplay;
+                    (isplay==false)?stoptimer=false:stoptimer=true;
+                  });
+                }, child: Icon((isplay==false) ? Icons.play_arrow : Icons.pause))
+
               ],
             )
           ])),
     );
   }
 }
+
+

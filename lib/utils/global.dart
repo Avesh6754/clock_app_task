@@ -30,9 +30,9 @@ var second=0;
 var minutes=0;
 var hour=0;
 bool stop=false;
-var secondtimer=0;
-var minutestimer=0;
-var hourtimer=0;
+var secondtimer=59;
+var minutestimer=59;
+var hourtimer=1;
 bool stoptimer=false;
 
 TextEditingController myminutes = TextEditingController();
